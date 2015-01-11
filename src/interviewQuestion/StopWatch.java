@@ -1,15 +1,24 @@
 package interviewQuestion;
 
-
 public class StopWatch {
-    private long startTime;
-    
-    public void start(){
-        startTime = System.nanoTime();
+
+    long startTime;
+
+    public StopWatch() {
+        start();
     }
-    
-    public Long getElapsedTimeNanoSeconds(){
+
+    public long start() {
+        startTime = System.nanoTime();
+        return startTime;
+    }
+
+    public Long getElapsedTimeNanoSeconds() {
         long currentTime = System.nanoTime();
         return currentTime - startTime;
+    }
+    
+    long getStartTime(){
+        return startTime;
     }
 }
