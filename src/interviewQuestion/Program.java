@@ -42,7 +42,6 @@ class Program {
     }
 
     private static int getSumOfEvenNumbers(List<Integer> addUpMyEvenNumbers, EvenNumberAdder evenNumberAdder) {
-//        EvenNumberAdder evenNumberAdder = new EvenNumberAdder();
         return evenNumberAdder.getSumOfEvenContent(addUpMyEvenNumbers);
     }
 

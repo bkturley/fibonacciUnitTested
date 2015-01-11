@@ -4,8 +4,7 @@ package interviewQuestion;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ProgramTest {
 
@@ -29,6 +28,9 @@ public class ProgramTest {
         int testResult = instance.run(args, mockStopWatch, mockFibonnociSequenceGenerator, mockEvenNumberAdder);
 
         assertEquals(expectedResult, testResult);
+        
+        verify(mockFibonnociSequenceGenerator).getFibonnociSequenceUpTo(4000000);
+        verify(mockEvenNumberAdder).getSumOfEvenContent(mockArrayList);
     }
 
 }
