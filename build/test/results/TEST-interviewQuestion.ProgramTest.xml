@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="SuprTEK" name="interviewQuestion.FibonnociSequenceGeneratorTest" skipped="0" tests="1" time="0.062" timestamp="2015-01-16T20:21:00">
+<testsuite errors="0" failures="0" hostname="SuprTEK" name="interviewQuestion.ProgramTest" skipped="0" tests="1" time="0.266" timestamp="2015-01-16T20:21:00">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -57,7 +57,7 @@
     <property name="libs.j2me_common_ant.maven-pom" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner interviewQuestion.FibonnociSequenceGeneratorTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\SuprTEK User\Documents\fibonacciUnitTested\build\test\results\TEST-interviewQuestion.FibonnociSequenceGeneratorTest.xml crashfile=C:\Users\SuprTEK User\Documents\fibonacciUnitTested\build\junitvmwatcher3188379732831995173.properties propsfile=C:\Users\SuprTEK User\Documents\fibonacciUnitTested\build\junit4050427180530670054.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner interviewQuestion.ProgramTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\SuprTEK User\Documents\fibonacciUnitTested\build\test\results\TEST-interviewQuestion.ProgramTest.xml crashfile=C:\Users\SuprTEK User\Documents\fibonacciUnitTested\build\junitvmwatcher4144126441292929830.properties propsfile=C:\Users\SuprTEK User\Documents\fibonacciUnitTested\build\junit1589014706013840248.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -401,7 +401,9 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.0.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="interviewQuestion.FibonnociSequenceGeneratorTest" name="testGetFibonnociSequenceUpTo_999999" time="0.015" />
-  <system-out><![CDATA[]]></system-out>
+  <testcase classname="interviewQuestion.ProgramTest" name="testRun_providesCorrectAnswer" time="0.203" />
+  <system-out><![CDATA[Answer: 4613732
+Calculation Time: 0 NanoSeconds.
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

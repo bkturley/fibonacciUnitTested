@@ -16,6 +16,7 @@ public class ProgramTest {
         String[] args = null;
         Program instance = new Program();
         int expectedResult = 4613732;
+        int fourMillion = 4000000;
 
         StopWatch mockStopWatch = mock(StopWatch.class);
         FibonnociSequenceGenerator mockFibonnociSequenceGenerator = mock(FibonnociSequenceGenerator.class);
@@ -23,14 +24,18 @@ public class ProgramTest {
 
         ArrayList mockArrayList = mock(ArrayList.class);
 
-        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(4000000)).thenReturn(mockArrayList);
+        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(fourMillion)).thenReturn(mockArrayList);
         when(mockEvenNumberAdder.getSumOfEvenContent(mockArrayList)).thenReturn(expectedResult);
+        
         int testResult = instance.run(args, mockStopWatch, mockFibonnociSequenceGenerator, mockEvenNumberAdder);
 
         assertEquals(expectedResult, testResult);
         
-        verify(mockFibonnociSequenceGenerator).getFibonnociSequenceUpTo(4000000);
+        verify(mockFibonnociSequenceGenerator).getFibonnociSequenceUpTo(fourMillion);
+        verifyNoMoreInteractions(mockFibonnociSequenceGenerator);
+        
         verify(mockEvenNumberAdder).getSumOfEvenContent(mockArrayList);
+        verifyNoMoreInteractions(mockEvenNumberAdder);
     }
 
 }
