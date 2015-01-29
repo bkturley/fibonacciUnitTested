@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="BKs-MacBook-Pro.att.net" name="interviewQuestion.FibonnociSequenceGeneratorTest" skipped="0" tests="1" time="0.047" timestamp="2015-01-29T21:39:55">
+<testsuite errors="0" failures="0" hostname="BKs-MacBook-Pro.att.net" name="interviewQuestion.SumOfAllMultiplesAdderTest" skipped="0" tests="1" time="0.054" timestamp="2015-01-29T21:39:56">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -58,7 +58,7 @@
     <property name="libs.j2me_common_ant.maven-pom" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner interviewQuestion.FibonnociSequenceGeneratorTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/bk/fibonacciUnitTested/build/test/results/TEST-interviewQuestion.FibonnociSequenceGeneratorTest.xml crashfile=/Users/bk/fibonacciUnitTested/build/junitvmwatcher138210395209219738.properties propsfile=/Users/bk/fibonacciUnitTested/build/junit1805689230090363808.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner interviewQuestion.SumOfAllMultiplesAdderTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/bk/fibonacciUnitTested/build/test/results/TEST-interviewQuestion.SumOfAllMultiplesAdderTest.xml crashfile=/Users/bk/fibonacciUnitTested/build/junitvmwatcher5007167543309517208.properties propsfile=/Users/bk/fibonacciUnitTested/build/junit6722187828571847374.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -227,6 +227,7 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
     <property name="netbeans.user" value="/Users/bk/Library/Application Support/NetBeans/8.0.2" />
+    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="java.io.tmpdir" value="/var/folders/b7/m_61bl7j4f37rt_5lsp44bkw0000gn/T/" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
@@ -300,12 +301,12 @@
     <property name="libs.swing-layout.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/platform/modules/ext/swing-layout-1.0.4.jar" />
     <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
     <property name="libs.restlib.src" value="" />
-    <property name="build.generated.dir" value="build/generated" />
     <property name="javac.source" value="1.7" />
+    <property name="build.generated.dir" value="build/generated" />
     <property name="line.separator" value="&#xa;" />
     <property name="java.specification.version" value="1.8" />
-    <property name="libs.jaxws21.maven-pom" value="" />
     <property name="java.vm.info" value="mixed mode" />
+    <property name="libs.jaxws21.maven-pom" value="" />
     <property name="nb.junit.batch" value="true" />
     <property name="junit.forkmode" value="perTest" />
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/classes" />
@@ -326,13 +327,13 @@
     <property name="dist.dir" value="dist" />
     <property name="libs.groovy-all.javadoc" value="" />
     <property name="testng.debug.mode" value="" />
-    <property name="libs.groovy-all.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/groovy/modules/ext/groovy-all.jar" />
     <property name="javac.fork" value="false" />
+    <property name="libs.groovy-all.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/groovy/modules/ext/groovy-all.jar" />
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
     <property name="default.javac.source" value="1.8" />
     <property name="debug-transport-by-os" value="dt_socket" />
-    <property name="sun.jnu.encoding" value="UTF-8" />
     <property name="libs.MySQLDriver.src" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
     <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.8.0_25-b17" />
     <property name="jna.platform.library.path" value="/usr/lib:/usr/lib" />
@@ -369,10 +370,10 @@
     <property name="libs.restlib.javadoc" value="" />
     <property name="nb.internal.action.name" value="test" />
     <property name="libs.JAXB-ENDORSED.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/api/jaxb-api.jar" />
-    <property name="libs.javaee-api-7.0.javadoc" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
     <property name="libs.eclipselink.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/eclipselink.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/javax.persistence_2.1.0.v201304241213.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/eclipselink/org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
-    <property name="libs.beans-binding.javadoc" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/docs/beansbinding-1.2.1-doc.zip" />
+    <property name="libs.javaee-api-7.0.javadoc" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+    <property name="libs.beans-binding.javadoc" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/docs/beansbinding-1.2.1-doc.zip" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="libs.CopyLibs.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/ant/extra/org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-framework300.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/ide/modules/org-apache-commons-logging.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/cglib-2.2.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-aop-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-aspects-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-beans-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-build-src-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-context-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-context-support-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-core-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-expression-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-framework-bom-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-instrument-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-instrument-tomcat-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-jdbc-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-jms-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-orm-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-oxm-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-struts-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-test-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-tx-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-web-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-3.2.7.RELEASE.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-portlet-3.2.7.RELEASE.jar" />
@@ -394,8 +395,8 @@
     <property name="build.dir" value="build" />
     <property name="libs.jsp-compilation.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/extide/ant/lib/ant.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/enterprise/modules/ext/servlet3.1-jsp2.3-api.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/enterprise/modules/ext/glassfish-jspparser-4.0.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/enterprise/modules/ext/jsf-2_2/javax.faces.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/enterprise/modules/ext/jstl-api.jar:/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/extide/ant/lib/ant-launcher.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
-    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="file.encoding" value="UTF-8" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="javadoc.nonavbar" value="false" />
     <property name="jdkBug6558476" value="false" />
     <property name="libs.spring-webmvc4.0.classpath" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/java/modules/ext/spring-4/spring-webmvc-4.0.1.RELEASE.jar" />
@@ -403,7 +404,7 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/Applications/NetBeans/NetBeans 8.0.2.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="interviewQuestion.FibonnociSequenceGeneratorTest" name="testGetFibonnociSequenceUpTo_999999" time="0.002" />
+  <testcase classname="interviewQuestion.SumOfAllMultiplesAdderTest" name="testGetSumOfEvenContent" time="0.004" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

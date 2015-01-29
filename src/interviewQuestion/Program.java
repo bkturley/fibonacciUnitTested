@@ -1,7 +1,6 @@
-
 package interviewQuestion;
 
-import java.util.ArrayList;
+import java.io.PrintStream;
 import java.util.List;
 
 class Program {
@@ -9,25 +8,46 @@ class Program {
     public Program() {
     }
 
-    public int run(String[] args) {                
-        return run(args, new StopWatch(), new FibonnociSequenceGenerator(), new EvenNumberAdder());
+    public void run(String[] args) {
+        run(args, new StopWatch(), new FibonnociSequenceGenerator(), new SumOfAllMultiplesAdder(), System.out);
     }
-    
-    int run(String[] args,
+
+    void run(String[] args,
             StopWatch stopWatch,
             FibonnociSequenceGenerator fibonnociSequenceGenerator,
-            EvenNumberAdder evenNumberAdder){
-        
-        int returnMe =  reportAnswer(fibonnociSequenceGenerator, evenNumberAdder);
+            SumOfAllMultiplesAdder sumOfAllMultiplesAdder,
+            PrintStream printStream) {
 
-        reportCalculationTime(stopWatch);
-        
-        return returnMe;
+        Integer upperLimit = null;
+        try {
+            upperLimit = getUpperLimit(args);
+            reportSumOfAllMultiplesInAFibonacciSequenceUpTo(fibonnociSequenceGenerator, sumOfAllMultiplesAdder, upperLimit);
+            reportCalculationTime(stopWatch);
+        } catch (NumberFormatException numberFormatException) {
+            printStream.println("Invalid upper limit parameter: " + args[0]);
+        } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+            printStream.println("Missing upper limit parameter.");
+        } catch (ParameterListLengthException ex) {
+            printStream.println("Invalid parameter list.");
+        }
     }
 
-    private static int reportAnswer(FibonnociSequenceGenerator fibonnociSequenceGenerator, EvenNumberAdder evenNumberAdder) {
-        int answer = getSumOfEvenNumbers(getFibonnociSequenceUpToFourMillion(fibonnociSequenceGenerator), evenNumberAdder);
-        System.out.println("Answer: " + answer);
+    private Integer getUpperLimit(String[] args) throws NumberFormatException, ParameterListLengthException, ArrayIndexOutOfBoundsException {
+        Integer upperLimit;
+        upperLimit = Integer.parseInt(args[0]);
+        if (upperLimit < 0) {
+            throw new NumberFormatException();
+        }
+        boolean invalidParameterListLength = args.length != 1;
+        if (invalidParameterListLength) {
+            throw new ParameterListLengthException();
+        }
+        return upperLimit;
+    }
+
+    private static int reportSumOfAllMultiplesInAFibonacciSequenceUpTo(FibonnociSequenceGenerator fibonnociSequenceGenerator, SumOfAllMultiplesAdder sumOfAllMultiplesAdder, Integer upperLimit) {
+        int answer = getSumOfEvenNumbers(fibonnociSequenceGenerator.getFibonnociSequenceUpTo(upperLimit), sumOfAllMultiplesAdder);
+        System.out.println("Sum of all even Fibonacci up to " + upperLimit + ": " + answer);
         return answer;
     }
 
@@ -37,12 +57,8 @@ class Program {
         return calculationTime;
     }
 
-    private static ArrayList<Integer> getFibonnociSequenceUpToFourMillion(FibonnociSequenceGenerator fibonnociSequenceGenerator) {
-        return fibonnociSequenceGenerator.getFibonnociSequenceUpTo(4000000);
-    }
-
-    private static int getSumOfEvenNumbers(List<Integer> addUpMyEvenNumbers, EvenNumberAdder evenNumberAdder) {
-        return evenNumberAdder.getSumOfEvenContent(addUpMyEvenNumbers);
+    private static int getSumOfEvenNumbers(List<Integer> addUpMyEvenNumbers, SumOfAllMultiplesAdder evenNumberAdder) {
+        return evenNumberAdder.getSumOfAllMultiplesOf(addUpMyEvenNumbers, 2);
     }
 
 }

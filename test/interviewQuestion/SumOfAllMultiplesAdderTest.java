@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interviewQuestion;
 
 import java.util.ArrayList;
@@ -10,20 +6,16 @@ import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author bkturley
- */
-public class EvenNumberAdderTest {
+public class SumOfAllMultiplesAdderTest {
 
-    public EvenNumberAdderTest() {
+    public SumOfAllMultiplesAdderTest() {
     }
 
     @Test
     public void testGetSumOfEvenContent() {
-        EvenNumberAdder evenNumberAdder = new EvenNumberAdder();
+        SumOfAllMultiplesAdder evenNumberAdder = new SumOfAllMultiplesAdder();
         int expectedResult = getSumOfEvenContent(getContent());
-        int testResult = evenNumberAdder.getSumOfEvenContent(getContent());
+        int testResult = evenNumberAdder.getSumOfAllMultiplesOf(getContent(), 2);
         assertEquals(expectedResult, testResult);
     }
 

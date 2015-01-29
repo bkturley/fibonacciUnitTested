@@ -3,13 +3,13 @@ package interviewQuestion;
 
 import java.util.List;
 
-class EvenNumberAdder {
+class SumOfAllMultiplesAdder {
 
-    int getSumOfEvenContent(List<Integer> addUpMyEvenNumbers) {
+    int getSumOfAllMultiplesOf(List<Integer> addUpMyEvenNumbers, int modulus) {
         int sumOfEvenNumbers = 0;
         for (int i = 0; i < addUpMyEvenNumbers.size(); i++) {
             Integer amIEven = addUpMyEvenNumbers.get(i);
-            boolean numberIsEven = (amIEven % 2 == 0);
+            boolean numberIsEven = (amIEven % modulus == 0);
             if (numberIsEven) {
                 sumOfEvenNumbers += amIEven;
             }

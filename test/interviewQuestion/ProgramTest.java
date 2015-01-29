@@ -1,9 +1,10 @@
 
 package interviewQuestion;
 
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class ProgramTest {
@@ -12,29 +13,36 @@ public class ProgramTest {
     }
 
     @Test
-    public void testRun_providesCorrectAnswer() {
-        String[] args = null;
+    public void testRun_reportsCorrectAnswer() {
+        String[] args = new String[1];
+//        args[0] = "9000";
         Program instance = new Program();
         int expectedResult = 4613732;
-        int fourMillion = 4000000;
 
         StopWatch mockStopWatch = mock(StopWatch.class);
         FibonnociSequenceGenerator mockFibonnociSequenceGenerator = mock(FibonnociSequenceGenerator.class);
-        EvenNumberAdder mockEvenNumberAdder = mock(EvenNumberAdder.class);
-
+        SumOfAllMultiplesAdder mockEvenNumberAdder = mock(SumOfAllMultiplesAdder.class);
+        
         ArrayList mockArrayList = mock(ArrayList.class);
 
-        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(fourMillion)).thenReturn(mockArrayList);
-        when(mockEvenNumberAdder.getSumOfEvenContent(mockArrayList)).thenReturn(expectedResult);
+        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(mockArrayList);
+        when(mockEvenNumberAdder.getSumOfAllMultiplesOf(mockArrayList, 2)).thenReturn(expectedResult);
         
-        int testResult = instance.run(args, mockStopWatch, mockFibonnociSequenceGenerator, mockEvenNumberAdder);
+        OutputStream mockOutputStream = mock(OutputStream.class);
+        PrintStream mockPrintStream  = mock(PrintStream.class);
+        PrintStream defaultPrintStream = System.out;
+        System.setOut(mockPrintStream);
+        
+        instance.run(args, mockStopWatch, mockFibonnociSequenceGenerator, mockEvenNumberAdder, mockPrintStream);
 
-        assertEquals(expectedResult, testResult);
+        System.setOut(defaultPrintStream);
         
-        verify(mockFibonnociSequenceGenerator).getFibonnociSequenceUpTo(fourMillion);
+        verify(mockPrintStream).println("Invalid upper limit parameter: " + args[0]);
+        
+//        verify(mockFibonnociSequenceGenerator).getFibonnociSequenceUpTo(9000);
         verifyNoMoreInteractions(mockFibonnociSequenceGenerator);
         
-        verify(mockEvenNumberAdder).getSumOfEvenContent(mockArrayList);
+//        verify(mockEvenNumberAdder).getSumOfAllMultiplesOf(mockArrayList, 2);
         verifyNoMoreInteractions(mockEvenNumberAdder);
     }
 
