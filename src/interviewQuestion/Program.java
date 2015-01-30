@@ -21,7 +21,9 @@ class Program {
         Integer upperLimit = null;
         try {
             upperLimit = getUpperLimit(args);
-            reportSumOfAllMultiplesInAFibonacciSequenceUpTo(fibonnociSequenceGenerator, sumOfAllMultiplesAdder, upperLimit);
+            int evenMultiple = 2;
+            reportSumOfAllMultiplesInAFibonacciSequenceUpTo(fibonnociSequenceGenerator, sumOfAllMultiplesAdder, upperLimit, evenMultiple);
+            
             reportCalculationTime(stopWatch);
         } catch (NumberFormatException numberFormatException) {
             printStream.println("Invalid upper limit parameter: " + args[0]);
@@ -45,20 +47,20 @@ class Program {
         return upperLimit;
     }
 
-    private static int reportSumOfAllMultiplesInAFibonacciSequenceUpTo(FibonnociSequenceGenerator fibonnociSequenceGenerator, SumOfAllMultiplesAdder sumOfAllMultiplesAdder, Integer upperLimit) {
-        int answer = getSumOfEvenNumbers(fibonnociSequenceGenerator.getFibonnociSequenceUpTo(upperLimit), sumOfAllMultiplesAdder);
+    private static int reportSumOfAllMultiplesInAFibonacciSequenceUpTo(FibonnociSequenceGenerator fibonnociSequenceGenerator, SumOfAllMultiplesAdder sumOfAllMultiplesAdder, Integer upperLimit, int multiple) {
+        int answer = getSumOfEvenNumbers(fibonnociSequenceGenerator.getFibonnociSequenceUpTo(upperLimit), sumOfAllMultiplesAdder, multiple);
         System.out.println("Sum of all even Fibonacci up to " + upperLimit + ": " + answer);
         return answer;
     }
 
     private static long reportCalculationTime(StopWatch stopWatch) {
-        long calculationTime = stopWatch.getElapsedTimeNanoSeconds();
-        System.out.println("Calculation Time: " + calculationTime + " NanoSeconds.");
+        long calculationTime = stopWatch.getElapsedTimeNanoSeconds()/1000000;
+        System.out.println("Calculation Time: " + calculationTime + " MilliSeconds.");
         return calculationTime;
     }
 
-    private static int getSumOfEvenNumbers(List<Integer> addUpMyEvenNumbers, SumOfAllMultiplesAdder evenNumberAdder) {
-        return evenNumberAdder.getSumOfAllMultiplesOf(addUpMyEvenNumbers, 2);
+    private static int getSumOfEvenNumbers(List<Integer> addUpMyEvenNumbers, SumOfAllMultiplesAdder sumOfAllMultiplesAdder, int multiple) {
+        return sumOfAllMultiplesAdder.getSumOfAllMultiplesOf(addUpMyEvenNumbers, multiple);
     }
 
 }
