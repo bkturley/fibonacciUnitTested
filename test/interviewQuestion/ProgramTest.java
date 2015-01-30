@@ -81,6 +81,7 @@ public class ProgramTest {
         String[] args = new String[1];
         args[0] = "9000";
         StopWatch mockStopWatch = mock(StopWatch.class);
+        
         when(mockStopWatch.getElapsedTimeNanoSeconds()).thenReturn((long) 456000000);
 
         FibonnociSequenceGenerator mockFibonnociSequenceGenerator = mock(FibonnociSequenceGenerator.class);
@@ -119,9 +120,12 @@ public class ProgramTest {
     }
     
 
+}
+
+
+
 //        try {
 //            PrintStream = new PrintStream(new File("file.txt")); 
 //        } catch (FileNotFoundException ex) {
 //            Logger.getLogger(ProgramTest.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-}
