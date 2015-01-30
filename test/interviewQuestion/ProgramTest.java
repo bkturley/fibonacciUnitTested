@@ -10,28 +10,7 @@ public class ProgramTest {
     public ProgramTest() {
     }
 
-    @Test
-    public void testRun_reportsErrorWhenNoUpperLimitParameterIsProvided() {
-        String[] args = new String[0];
-        Program testObject = new Program();
-
-        StopWatch mockStopWatch = mock(StopWatch.class);
-        FibonnociSequenceGenerator mockFibonnociSequenceGenerator = mock(FibonnociSequenceGenerator.class);
-        SumOfAllMultiplesAdder mockEvenNumberAdder = mock(SumOfAllMultiplesAdder.class);
-        ArrayList mockArrayList = mock(ArrayList.class);
-        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(mockArrayList);
-
-        PrintStream mockPrintStream = mock(PrintStream.class);
-        PrintStream defaultPrintStream = System.out;
-
-        System.setOut(mockPrintStream);
-        testObject.run(args, mockStopWatch, mockFibonnociSequenceGenerator, mockEvenNumberAdder, mockPrintStream);
-        System.setOut(defaultPrintStream);
-
-        verify(mockPrintStream).println("Missing upper limit parameter.");
-    }
-    
-        @Test
+            @Test
     public void testRun_reportsErrorWhenUpperLimitParameterIsInvalid() {
         String[] args = new String[1];
         args[0] = "gibberish";
@@ -52,7 +31,28 @@ public class ProgramTest {
 
         verify(mockPrintStream).println("Invalid upper limit parameter: " + args[0]);
     }
+    
+    @Test
+    public void testRun_reportsErrorWhenNoUpperLimitParameterIsProvided() {
+        String[] args = new String[0];
+        Program testObject = new Program();
 
+        StopWatch mockStopWatch = mock(StopWatch.class);
+        FibonnociSequenceGenerator mockFibonnociSequenceGenerator = mock(FibonnociSequenceGenerator.class);
+        SumOfAllMultiplesAdder mockEvenNumberAdder = mock(SumOfAllMultiplesAdder.class);
+        ArrayList mockArrayList = mock(ArrayList.class);
+        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(mockArrayList);
+
+        PrintStream mockPrintStream = mock(PrintStream.class);
+        PrintStream defaultPrintStream = System.out;
+
+        System.setOut(mockPrintStream);
+        testObject.run(args, mockStopWatch, mockFibonnociSequenceGenerator, mockEvenNumberAdder, mockPrintStream);
+        System.setOut(defaultPrintStream);
+
+        verify(mockPrintStream).println("Missing upper limit parameter.");
+    }
+   
     @Test
     public void testRun_reportsErrorWhenMoreThanOneInputParameterIsGiven() {
         String[] args = new String[2];
@@ -77,7 +77,7 @@ public class ProgramTest {
     }
 
     @Test
-    public void testRun_reportsSumOfEvenFibsWhenGivenValidInput() {
+    public void testRun_reportsSumOfMultipleOf2FibsWhenGivenValidInput() {
         String[] args = new String[1];
         args[0] = "9000";
         StopWatch mockStopWatch = mock(StopWatch.class);
@@ -108,14 +108,16 @@ public class ProgramTest {
         verify(mockFibonnociSequenceGenerator).getFibonnociSequenceUpTo(9000);
         verifyNoMoreInteractions(mockFibonnociSequenceGenerator);
 
-        verify(mockSumOfAllMultiplesAdder).getSumOfAllMultiplesOf(testArrayList, 2);
+        int multipleOf2Modulus = 2;
+        verify(mockSumOfAllMultiplesAdder).getSumOfAllMultiplesOf(testArrayList, multipleOf2Modulus);
         verifyNoMoreInteractions(mockSumOfAllMultiplesAdder);
 
-        verify(mockPrintStream).println("Sum of all even Fibonacci up to 9000: 123");
+        verify(mockPrintStream).println("Sum of all multiples of " + multipleOf2Modulus +  " Fibonacci up to 9000: 123");
         verify(mockPrintStream).println("Calculation Time: 456 MilliSeconds.");
         verifyNoMoreInteractions(mockPrintStream);
 
     }
+    
 
 //        try {
 //            PrintStream = new PrintStream(new File("file.txt")); 

@@ -9,8 +9,8 @@ class SumOfAllMultiplesAdder {
         int sumOfEvenNumbers = 0;
         for (int i = 0; i < addUpMyEvenNumbers.size(); i++) {
             Integer amIEven = addUpMyEvenNumbers.get(i);
-            boolean numberIsEven = (amIEven % modulus == 0);
-            if (numberIsEven) {
+            boolean numberIsMultiple = (amIEven % modulus == 0);
+            if (numberIsMultiple) {
                 sumOfEvenNumbers += amIEven;
             }
         }

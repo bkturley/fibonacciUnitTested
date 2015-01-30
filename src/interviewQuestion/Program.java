@@ -23,7 +23,6 @@ class Program {
             upperLimit = getUpperLimit(args);
             int evenMultiple = 2;
             reportSumOfAllMultiplesInAFibonacciSequenceUpTo(fibonnociSequenceGenerator, sumOfAllMultiplesAdder, upperLimit, evenMultiple);
-            
             reportCalculationTime(stopWatch);
         } catch (NumberFormatException numberFormatException) {
             printStream.println("Invalid upper limit parameter: " + args[0]);
@@ -49,7 +48,7 @@ class Program {
 
     private static int reportSumOfAllMultiplesInAFibonacciSequenceUpTo(FibonnociSequenceGenerator fibonnociSequenceGenerator, SumOfAllMultiplesAdder sumOfAllMultiplesAdder, Integer upperLimit, int multiple) {
         int answer = getSumOfEvenNumbers(fibonnociSequenceGenerator.getFibonnociSequenceUpTo(upperLimit), sumOfAllMultiplesAdder, multiple);
-        System.out.println("Sum of all even Fibonacci up to " + upperLimit + ": " + answer);
+        System.out.println("Sum of all multiples of " + multiple + " Fibonacci up to " + upperLimit + ": " + answer);
         return answer;
     }
 
