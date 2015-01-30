@@ -3,12 +3,8 @@ package interviewQuestion;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 /**

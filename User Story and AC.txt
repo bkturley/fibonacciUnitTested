@@ -8,7 +8,7 @@ so that I can <achieve some goal/benefit/value>.
 
 As a user, 
 I want to see the sum of all odd Fibonacci numbers up to 4 million
-so that I can compair the sum of odd Fibonacci numbers to the sum of even Fibonacci numbers.
+so that I can compare the sum of odd Fibonacci numbers to the sum of even Fibonacci numbers.
 
 
 
