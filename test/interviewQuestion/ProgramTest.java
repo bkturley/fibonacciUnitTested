@@ -80,8 +80,9 @@ public class ProgramTest {
         verify(mockPrintStream).println("Invalid parameter list.");
     }
 
-    @Test
-    public void testRun_reportsSumOfMultipleOf2FibsWhenGivenValidInput() {
+    
+        @Test
+    public void testRun_reportsSumOfMultipleOf2FibsAndMultiplesOf5FibsWhenGivenValidInput() {
         String[] args = new String[1];
         args[0] = "9000";
         StopWatch mockStopWatch = mock(StopWatch.class);
@@ -93,35 +94,37 @@ public class ProgramTest {
         when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(testArrayList);
 
         SumOfAllMultiplesAdder mockSumOfAllMultiplesAdder = mock(SumOfAllMultiplesAdder.class);
-        when(mockSumOfAllMultiplesAdder.getSumOfAllMultiplesOf(testArrayList, 2)).thenReturn(123);
-
-        PrintStream mockPrintStream = null;
+        int multipleOf2Modulus = 2;
+        when(mockSumOfAllMultiplesAdder.getSumOfAllMultiplesOf(testArrayList, multipleOf2Modulus)).thenReturn(123);
+        int multipleOf5Modulus = 5;    
+        when(mockSumOfAllMultiplesAdder.getSumOfAllMultiplesOf(testArrayList, multipleOf5Modulus)).thenReturn(798);
 
         PrintStream defaultPrintStream = System.out;
-        mockPrintStream = mock(PrintStream.class);
+        PrintStream mockPrintStream = mock(PrintStream.class);
 
         System.setOut(mockPrintStream);
 
         Program testObject = new Program();
         testObject.run(args, mockStopWatch, mockFibonnociSequenceGenerator, mockSumOfAllMultiplesAdder, mockPrintStream);
-
         System.setOut(defaultPrintStream);
 
         verify(mockStopWatch).getElapsedTimeNanoSeconds();
         verifyNoMoreInteractions(mockStopWatch);
 
-        verify(mockFibonnociSequenceGenerator).getFibonnociSequenceUpTo(9000);
+        verify(mockFibonnociSequenceGenerator, times(2)).getFibonnociSequenceUpTo(9000);
         verifyNoMoreInteractions(mockFibonnociSequenceGenerator);
 
-        int multipleOf2Modulus = 2;
         verify(mockSumOfAllMultiplesAdder).getSumOfAllMultiplesOf(testArrayList, multipleOf2Modulus);
+        verify(mockSumOfAllMultiplesAdder).getSumOfAllMultiplesOf(testArrayList, multipleOf5Modulus);
         verifyNoMoreInteractions(mockSumOfAllMultiplesAdder);
 
         verify(mockPrintStream).println("Sum of all multiples of " + multipleOf2Modulus +  " Fibonacci up to 9000: 123");
+        verify(mockPrintStream).println("Sum of all multiples of " + multipleOf5Modulus +  " Fibonacci up to 9000: 798");
         verify(mockPrintStream).println("Calculation Time: 456 MilliSeconds.");
         verifyNoMoreInteractions(mockPrintStream);
 
     }
+    
     
 
 }

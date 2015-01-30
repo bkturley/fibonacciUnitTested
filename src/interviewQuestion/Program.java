@@ -23,6 +23,8 @@ class Program {
             upperLimit = getUpperLimit(args);
             int evenMultiple = 2;
             reportSumOfAllMultiplesInAFibonacciSequenceUpTo(fibonnociSequenceGenerator, sumOfAllMultiplesAdder, upperLimit, evenMultiple);
+            reportSumOfAllMultiplesInAFibonacciSequenceUpTo(fibonnociSequenceGenerator, sumOfAllMultiplesAdder, upperLimit, 5);
+            
             reportCalculationTime(stopWatch);
         } catch (NumberFormatException numberFormatException) {
             printStream.println("Invalid upper limit parameter: " + args[0]);

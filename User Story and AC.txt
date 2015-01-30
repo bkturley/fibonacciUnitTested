@@ -23,6 +23,6 @@ so that I can compare the sum of multiple of 2 Fibonacci numbers
   
   Given I run the application
   When  the the sum of all even fibs is displayed
-  Then  the sum of all odd fibs fibs is displayed
+  Then  the sum of all multiples of 5 fibs is displayed
   
 
