@@ -6,10 +6,10 @@ I want <to perform some task>
 so that I can <achieve some goal/benefit/value>.
 
 As a user, 
-I want to see the sum of all Fibonacci numbers that are 
-        multiples of 5 up to a given upper limit,
-so that I can compare the sum of multiple of 2 Fibonacci numbers 
-        to the sum of multiple of 5 Fibonacci numbers.
+I want to see the sum of all numbers in the geometric series 
+       a=3 r=2 that are multiples of 2 up to a given upper limit,
+so that I can compare the sum of multiple of 2 terms in the geometric
+       sequence to the sum of multiple of 2 terms in the Fibonacci sequence.
 
 --------------------------------------------------------
 
@@ -22,7 +22,7 @@ so that I can compare the sum of multiple of 2 Fibonacci numbers
   And   [another outcome]…
   
   Given I run the application
-  When  the the sum of all even fibs is displayed
-  Then  the sum of all multiples of 5 fibs is displayed
+  When  the sum of all multiples of 2 fibs is displayed
+  Then  the sum of geometric sequence a=3, r=2  5 fibs is displayed.
   
 
