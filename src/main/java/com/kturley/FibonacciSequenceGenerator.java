@@ -2,7 +2,7 @@ package com.kturley;
 
 import java.util.ArrayList;
 
-public class FibonnociSequenceGenerator {
+public class FibonacciSequenceGenerator {
 
     public ArrayList<Integer> getFibonnociSequenceUpTo(Integer upToHere) {
         ArrayList<Integer> fibonnociSequence = new ArrayList();

@@ -5,11 +5,10 @@ import javax.inject.Singleton;
 import java.io.PrintStream;
 import java.util.List;
 
-@Singleton
 class Fibber {
 
     @Inject
-    FibonnociSequenceGenerator fibonnociSequenceGenerator;
+    FibonacciSequenceGenerator fibonacciSequenceGenerator;
     @Inject
     StopWatch stopWatch;
     @Inject
@@ -23,6 +22,7 @@ class Fibber {
         try {
             upperLimit = getUpperLimit(args);
             int evenMultiple = 2;
+            stopWatch.start();
             reportSumOfAllMultiplesInAFibonacciSequenceUpTo(upperLimit, evenMultiple);
             reportCalculationTime(stopWatch);
         } catch (NumberFormatException numberFormatException) {
@@ -48,7 +48,7 @@ class Fibber {
     }
 
     private int reportSumOfAllMultiplesInAFibonacciSequenceUpTo(Integer upperLimit, int multiple) {
-        int answer = getSumOfEvenNumbers(fibonnociSequenceGenerator.getFibonnociSequenceUpTo(upperLimit), sumOfAllMultiplesAdder, multiple);
+        int answer = getSumOfEvenNumbers(fibonacciSequenceGenerator.getFibonnociSequenceUpTo(upperLimit), sumOfAllMultiplesAdder, multiple);
         System.out.println("Sum of all even Fibonacci up to " + upperLimit + ": " + answer);
         return answer;
     }

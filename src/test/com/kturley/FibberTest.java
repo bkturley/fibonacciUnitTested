@@ -17,7 +17,7 @@ public class FibberTest {
     Fibber testSubject;
 
     @Mock
-    private FibonnociSequenceGenerator mockFibonnociSequenceGenerator;
+    private FibonacciSequenceGenerator mockFibonacciSequenceGenerator;
     @Mock
     private SumOfAllMultiplesAdder mockSumOfAllMultiplesAdder;
     @Mock
@@ -28,13 +28,10 @@ public class FibberTest {
 
     @Before
     public void setup(){
-
         MockitoAnnotations.initMocks(this);
-
         System.setOut(mockPrintStream);
-
         testSubject = new Fibber();
-        testSubject.fibonnociSequenceGenerator = mockFibonnociSequenceGenerator;
+        testSubject.fibonacciSequenceGenerator = mockFibonacciSequenceGenerator;
         testSubject.sumOfAllMultiplesAdder = mockSumOfAllMultiplesAdder;
         testSubject.stopWatch = mockStopWatch;
     }
@@ -47,7 +44,6 @@ public class FibberTest {
     @Test
     public void testRun_PrintsErrorWhenNoUpperLimitParameterIsProvided() {
         String[] args = new String[0];
-        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(new ArrayList<Integer>());
         testSubject.run(args);
         verify(mockPrintStream).println("Missing upper limit parameter.");
     }
@@ -57,7 +53,7 @@ public class FibberTest {
         String[] args = new String[1];
         args[0] = "gibberish";
 
-        FibonnociSequenceGenerator mockFibonnociSequenceGenerator = mock(FibonnociSequenceGenerator.class);
+        FibonacciSequenceGenerator mockFibonnociSequenceGenerator = mock(FibonacciSequenceGenerator.class);
         ArrayList mockArrayList = mock(ArrayList.class);
         when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(mockArrayList);
 
@@ -78,7 +74,7 @@ public class FibberTest {
         args[1] = "200";
 
         ArrayList mockArrayList = mock(ArrayList.class);
-        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(mockArrayList);
+        when(mockFibonacciSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(mockArrayList);
 
         PrintStream mockPrintStream = mock(PrintStream.class);
         PrintStream defaultPrintStream = System.out;
@@ -97,7 +93,7 @@ public class FibberTest {
         when(mockStopWatch.getElapsedTimeNanoSeconds()).thenReturn((long) 456000000);
 
         ArrayList<Integer> testArrayList = new ArrayList<>();
-        when(mockFibonnociSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(testArrayList);
+        when(mockFibonacciSequenceGenerator.getFibonnociSequenceUpTo(9000)).thenReturn(testArrayList);
 
         when(mockSumOfAllMultiplesAdder.getSumOfAllMultiplesOf(testArrayList, 2)).thenReturn(123);
 
@@ -112,8 +108,8 @@ public class FibberTest {
         verify(mockStopWatch).getElapsedTimeNanoSeconds();
         verifyNoMoreInteractions(mockStopWatch);
 
-        verify(mockFibonnociSequenceGenerator).getFibonnociSequenceUpTo(9000);
-        verifyNoMoreInteractions(mockFibonnociSequenceGenerator);
+        verify(mockFibonacciSequenceGenerator).getFibonnociSequenceUpTo(9000);
+        verifyNoMoreInteractions(mockFibonacciSequenceGenerator);
 
         verify(mockSumOfAllMultiplesAdder).getSumOfAllMultiplesOf(testArrayList, 2);
         verifyNoMoreInteractions(mockSumOfAllMultiplesAdder);
