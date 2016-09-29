@@ -1,13 +1,16 @@
-/dist/
-/build/
-*.class
-*.xml
+# Eclipse
+.classpath
+.project
+.settings/
 
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-.nb-gradle/
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
