@@ -12,9 +12,9 @@ public class FibonnociSequenceGeneratorTest {
     @Test
     public void testGetFibonnociSequenceUpTo_999999() {
         Integer upToHere = 999999;
-        FibonacciSequenceGenerator instance = new FibonacciSequenceGenerator();
+        FibonacciSequence instance = new FibonacciSequence();
         ArrayList<Integer> expResult = getFibonnociSequenceUpTo(upToHere);
-        ArrayList<Integer> result = instance.getFibonnociSequenceUpTo(upToHere);
+        ArrayList<Integer> result = instance.upTo(upToHere);
         assertEquals(expResult, result);
     }
 

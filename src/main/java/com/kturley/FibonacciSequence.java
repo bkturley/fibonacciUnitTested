@@ -2,9 +2,9 @@ package com.kturley;
 
 import java.util.ArrayList;
 
-public class FibonacciSequenceGenerator {
+public class FibonacciSequence {
 
-    public ArrayList<Integer> getFibonnociSequenceUpTo(Integer upToHere) {
+    public ArrayList<Integer> upTo(Integer upToHere) {
         ArrayList<Integer> fibonnociSequence = new ArrayList();
         fibonnociSequence.add(new Integer(0));
         fibonnociSequence.add(new Integer(1));

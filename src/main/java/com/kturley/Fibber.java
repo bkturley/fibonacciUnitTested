@@ -1,18 +1,16 @@
 package com.kturley;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import java.io.PrintStream;
-import java.util.List;
 
 class Fibber {
 
     @Inject
-    FibonacciSequenceGenerator fibonacciSequenceGenerator;
+    FibonacciSequence fibonacciSequence;
     @Inject
     StopWatch stopWatch;
     @Inject
-    SumOfAllMultiplesAdder sumOfAllMultiplesAdder;
+    SumOfAllMultiples sumOfAllMultiples;
 
     PrintStream printStream = System.out;
 
@@ -21,10 +19,9 @@ class Fibber {
         Integer upperLimit;
         try {
             upperLimit = getUpperLimit(args);
-            int evenMultiple = 2;
             stopWatch.start();
-            reportSumOfAllMultiplesInAFibonacciSequenceUpTo(upperLimit, evenMultiple);
-            reportCalculationTime(stopWatch);
+            System.out.println("Sum of all even Fibonacci up to " + upperLimit + ": " + sumOfAllMultiplesInAFibonacciSequenceUpTo(upperLimit, 2));
+            reportCalculationTime();
         } catch (NumberFormatException numberFormatException) {
             printStream.println("Invalid upper limit parameter: " + args[0]);
         } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
@@ -47,20 +44,15 @@ class Fibber {
         return upperLimit;
     }
 
-    private int reportSumOfAllMultiplesInAFibonacciSequenceUpTo(Integer upperLimit, int multiple) {
-        int answer = getSumOfEvenNumbers(fibonacciSequenceGenerator.getFibonnociSequenceUpTo(upperLimit), sumOfAllMultiplesAdder, multiple);
-        System.out.println("Sum of all even Fibonacci up to " + upperLimit + ": " + answer);
+    private int sumOfAllMultiplesInAFibonacciSequenceUpTo(Integer upperLimit, int multiple) {
+        int answer = sumOfAllMultiples.of(multiple).in(fibonacciSequence.upTo(upperLimit)).value();
         return answer;
     }
 
-    private long reportCalculationTime(StopWatch stopWatch) {
-        long calculationTime = stopWatch.getElapsedTimeNanoSeconds()/1000000;
-        System.out.println("Calculation Time: " + calculationTime + " MilliSeconds.");
+    private long reportCalculationTime() {
+        long calculationTime = stopWatch.getElapsedTimeNanoSeconds();
+        System.out.println("Calculation Time: " + calculationTime + " NanoSeconds.");
         return calculationTime;
-    }
-
-    private static int getSumOfEvenNumbers(List<Integer> addUpMyEvenNumbers, SumOfAllMultiplesAdder sumOfAllMultiplesAdder, int multiple) {
-        return sumOfAllMultiplesAdder.getSumOfAllMultiplesOf(addUpMyEvenNumbers, multiple);
     }
 
 }
