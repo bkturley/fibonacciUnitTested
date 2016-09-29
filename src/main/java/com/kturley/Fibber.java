@@ -39,7 +39,7 @@ class Fibber {
     private String invalidConsoleOutput(String[] args) {
         String inValidInputMessage = "";
         try {
-            upperLimit = getUpperLimit(args);
+            upperLimit = parseUpperLimitFromCommandLineArgs(args);
         } catch (NumberFormatException numberFormatException) {
             inValidInputMessage = "Invalid upper limit parameter: " + args[0];
         } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
@@ -50,7 +50,7 @@ class Fibber {
         return inValidInputMessage;
     }
 
-    private Integer getUpperLimit(String[] args) throws NumberFormatException, ParameterListLengthException, ArrayIndexOutOfBoundsException {
+    private Integer parseUpperLimitFromCommandLineArgs(String[] args) throws NumberFormatException, ParameterListLengthException, ArrayIndexOutOfBoundsException {
         Integer upperLimit;
         upperLimit = Integer.parseInt(args[0]);
         if (upperLimit < 0) {
