@@ -8,11 +8,11 @@ so that I can <achieve some goal/benefit/value>.
 
 As a user, 
 I want to see the sum of all odd Fibonacci numbers up to 4 million
-so that I can compair the sum of odd Fibonacci numbers to the sum of even Fibonacci numbers.
+so that I can compare the sum of odd Fibonacci numbers to the sum of even Fibonacci numbers.
 
 
 
-  ACCEPTANCE CRITERA
+  ACCEPTANCE CRITERIA
   
   Given [context]
   And   [some more context]…
@@ -21,7 +21,5 @@ so that I can compair the sum of odd Fibonacci numbers to the sum of even Fibona
   And   [another outcome]…
   
   Given I run the application
-  When  the the sum of all even fibs is displayed
-  Then  the sum of all odd fibs fibs is displayed
-  
+  I expect to see the the sum of all even fibs is displayed
 
