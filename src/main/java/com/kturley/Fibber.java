@@ -14,21 +14,39 @@ class Fibber {
 
     PrintStream printStream = System.out;
 
-    void run(String[] args) {
+    private Integer upperLimit;
 
-        Integer upperLimit;
+    void run(String[] args) {
+        printStream.println(validInput(args) ? successConsoleOutput() : invalidConsoleOutput(args));
+    }
+
+    private boolean validInput(String[] args) {
+        return invalidConsoleOutput(args).isEmpty();
+    }
+
+    private String successConsoleOutput() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Sum of all even Fibonacci up to " + upperLimit + ": ");
+        stopWatch.start();
+        int solution = sumOfAllMultiples.of(2).in(fibonacciSequence.upTo(upperLimit)).value();
+        long calculationTime = stopWatch.stop();
+        stringBuilder.append(solution);
+        stringBuilder.append("Calculation Time: " + calculationTime + " NanoSeconds.");
+        return stringBuilder.toString();
+    }
+
+    private String invalidConsoleOutput(String[] args) {
+        String inValidInputMessage = "";
         try {
             upperLimit = getUpperLimit(args);
-            stopWatch.start();
-            System.out.println("Sum of all even Fibonacci up to " + upperLimit + ": " + sumOfAllMultiplesInAFibonacciSequenceUpTo(upperLimit, 2));
-            reportCalculationTime();
         } catch (NumberFormatException numberFormatException) {
-            printStream.println("Invalid upper limit parameter: " + args[0]);
+            inValidInputMessage = "Invalid upper limit parameter: " + args[0];
         } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-            printStream.println("Missing upper limit parameter.");
+            inValidInputMessage = "Missing upper limit parameter.";
         } catch (ParameterListLengthException ex) {
-            printStream.println("Invalid parameter list.");
+            inValidInputMessage = "Invalid parameter list.";
         }
+        return inValidInputMessage;
     }
 
     private Integer getUpperLimit(String[] args) throws NumberFormatException, ParameterListLengthException, ArrayIndexOutOfBoundsException {
@@ -42,17 +60,6 @@ class Fibber {
             throw new ParameterListLengthException();
         }
         return upperLimit;
-    }
-
-    private int sumOfAllMultiplesInAFibonacciSequenceUpTo(Integer upperLimit, int multiple) {
-        int answer = sumOfAllMultiples.of(multiple).in(fibonacciSequence.upTo(upperLimit)).value();
-        return answer;
-    }
-
-    private long reportCalculationTime() {
-        long calculationTime = stopWatch.getElapsedTimeNanoSeconds();
-        System.out.println("Calculation Time: " + calculationTime + " NanoSeconds.");
-        return calculationTime;
     }
 
 }

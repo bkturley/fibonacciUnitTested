@@ -22,7 +22,7 @@ public class StopWatchTest {
         long startTime = System.nanoTime();
         StopWatch stopWatch = new StopWatch();
         for(int count = 0; count < 9999999; count++);        
-        long testElapsedTime = stopWatch.getElapsedTimeNanoSeconds();        
+        long testElapsedTime = stopWatch.stop();
         long controlElapsedTime = System.nanoTime() - startTime;        
         boolean accurateToWithinOneMilliecond = (controlElapsedTime - testElapsedTime) <= 10000000;
         assertTrue(accurateToWithinOneMilliecond);

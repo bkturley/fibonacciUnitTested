@@ -3,17 +3,18 @@ package com.kturley;
 public class StopWatch {
 
     long startTime;
+    Long stopTime;
 
     public StopWatch() {
         start();
     }
 
-    public long start() {
+    public void start() {
         startTime = System.nanoTime();
-        return startTime;
     }
 
-    public Long getElapsedTimeNanoSeconds() {
+
+    public Long stop() {
         long currentTime = System.nanoTime();
         return currentTime - startTime;
     }
