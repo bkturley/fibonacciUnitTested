@@ -19,11 +19,10 @@ class SumOfAllMultiples {
 
     int value() {
         int sumOfEvenNumbers = 0;
-        for (Integer amIEven : in) {
-            boolean numberIsEven = (amIEven % of == 0);
-            if (numberIsEven) {
-                sumOfEvenNumbers += amIEven;
-                sumOfEvenNumbers += amIEven;
+        for (Integer amIMultiple : in) {
+            boolean numberIsMultiple = (amIMultiple % of == 0);
+            if (numberIsMultiple) {
+                sumOfEvenNumbers += amIMultiple;
             }
         }
 

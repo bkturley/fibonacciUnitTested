@@ -31,6 +31,7 @@ class Fibber {
         int solution = sumOfAllMultiples.of(2).in(fibonacciSequence.upTo(upperLimit)).value();
         long calculationTime = stopWatch.stop();
         stringBuilder.append(solution);
+        stringBuilder.append(System.getProperty("line.separator"));
         stringBuilder.append("Calculation Time: " + calculationTime + " NanoSeconds.");
         return stringBuilder.toString();
     }
