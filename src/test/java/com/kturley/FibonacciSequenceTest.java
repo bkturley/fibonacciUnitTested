@@ -1,24 +1,27 @@
 package com.kturley;
 
 import java.util.ArrayList;
+
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class FibonnociSequenceGeneratorTest {
+public class FibonacciSequenceTest {
 
-    public FibonnociSequenceGeneratorTest() {
+    private FibonacciSequence testSubject;
+
+    @Before
+    public void setup(){
+        testSubject = new FibonacciSequence();
     }
 
     @Test
-    public void testGetFibonnociSequenceUpTo_999999() {
+    public void testGetFibonacciSequenceUpTo_999999() {
         Integer upToHere = 999999;
-        FibonacciSequence instance = new FibonacciSequence();
-        ArrayList<Integer> expResult = getFibonnociSequenceUpTo(upToHere);
-        ArrayList<Integer> result = instance.upTo(upToHere);
-        assertEquals(expResult, result);
+        assertEquals(knownGoodAlgorithm(upToHere), testSubject.upTo(upToHere));
     }
 
-    private ArrayList<Integer> getFibonnociSequenceUpTo(Integer upToHere) {
+    private ArrayList<Integer> knownGoodAlgorithm(Integer upToHere) {
         ArrayList<Integer> fibonnociSequence = new ArrayList();
         fibonnociSequence.add(new Integer(0));
         fibonnociSequence.add(new Integer(1));

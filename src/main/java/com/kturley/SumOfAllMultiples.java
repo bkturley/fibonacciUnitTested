@@ -19,13 +19,14 @@ class SumOfAllMultiples {
 
     int value() {
         int sumOfEvenNumbers = 0;
-        for (Integer amIMultiple : in) {
-            boolean numberIsMultiple = (amIMultiple % of == 0);
-            if (numberIsMultiple) {
-                sumOfEvenNumbers += amIMultiple;
+        if(of>0){
+            for (Integer amIMultiple : in) {
+                boolean numberIsMultiple = (amIMultiple % of == 0);
+                if (numberIsMultiple) {
+                    sumOfEvenNumbers += amIMultiple;
+                }
             }
         }
-
         return sumOfEvenNumbers;
     }
 }

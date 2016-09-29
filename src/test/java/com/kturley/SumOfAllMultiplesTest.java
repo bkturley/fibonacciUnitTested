@@ -3,37 +3,66 @@ package com.kturley;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class SumOfAllMultiplesTest {
 
-    public SumOfAllMultiplesTest() {
-    }
+    private SumOfAllMultiples testSubject;
 
-//    @Test
-//    public void testGetSumOfEvenContent() {
-//        SumOfAllMultiples evenNumberAdder = new SumOfAllMultiples();
-//        int expectedResult = getSumOfEvenContent(getContent());
-//        int testResult = evenNumberAdder.of(getContent(), 2);
-//        assertEquals(expectedResult, testResult);
-//    }
+    private static List<Integer> integerList;
 
-    private List<Integer> getContent() {
-        ArrayList<Integer> returnMe = new ArrayList<Integer>();
-        for (int count = 0; count < 999999; count++) {
-               returnMe.add(count);
+    @BeforeClass
+    public static void generateTestData(){
+        integerList = new ArrayList<>();
+        for (int count = 0; count < 9999; count++) {
+            integerList.add(count);
         }
-        return returnMe;
     }
 
-    private int getSumOfEvenContent(List<Integer> addUpMyEvenNumbers) {
+    @Before
+    public void setup(){
+        testSubject = new SumOfAllMultiples();
+    }
+
+    @Test
+    public void testGetOfIn() {
+        for(Integer integer : integerList){
+            int expectedResult = knownGoodAlgorithm(integerList, integer);
+            int testResult = testSubject.of(integer).in(integerList).value();
+            assertEquals(expectedResult, testResult);
+        }
+    }
+
+    @Test
+    public void testGetInOf() {
+        for(Integer integer : integerList){
+            int expectedResult = knownGoodAlgorithm(integerList, integer);
+            int testResult = testSubject.in(integerList).of(integer).value();
+            assertEquals(expectedResult, testResult);
+        }
+    }
+
+    @Test
+    public void testOrderEquivalence(){
+        for(Integer integer : integerList){
+            assertEquals(testSubject.in(integerList).of(integer).value(), testSubject.of(integer).in(integerList).value());
+        }
+
+    }
+
+    private int knownGoodAlgorithm(List<Integer> integerList, int modulus) {
         int sumOfEvenNumbers = 0;
-        for (int i = 0; i < addUpMyEvenNumbers.size(); i++) {
-            Integer amIEven = addUpMyEvenNumbers.get(i);
-            boolean numberIsEven = (amIEven % 2 == 0);
-            if (numberIsEven) {
-                sumOfEvenNumbers += amIEven;
+        if(modulus>0){
+            for (int i = 0; i < integerList.size(); i++) {
+                Integer amIEven = integerList.get(i);
+                boolean numberIsEven = (amIEven % modulus == 0);
+                if (numberIsEven) {
+                    sumOfEvenNumbers += amIEven;
+                }
             }
         }
         return sumOfEvenNumbers;
