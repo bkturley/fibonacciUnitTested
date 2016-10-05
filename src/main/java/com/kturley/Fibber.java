@@ -19,6 +19,8 @@ class Fibber {
     void run(String[] args) {
         if(validInput(args)){
             printStream.println(successConsoleOutput());
+            Integer largestFibFound = fibonacciSequence.upTo(upperLimit).largest();
+            printStream.println("Largest Fibonacci number found: " + largestFibFound);
         }else{
             printStream.println(invalidConsoleOutput(args));
         }
@@ -32,7 +34,7 @@ class Fibber {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Sum of all even Fibonacci up to " + upperLimit + ": ");
         stopWatch.start();
-        int sumOfEvenFibs = sumOfAllMultiples.of(2).in(fibonacciSequence.upTo(upperLimit)).value();
+        int sumOfEvenFibs = sumOfAllMultiples.of(2).in(fibonacciSequence.upTo(upperLimit).value()).value();
         long calculationTime = stopWatch.stop();
         stringBuilder.append(sumOfEvenFibs);
         stringBuilder.append(System.getProperty("line.separator"));

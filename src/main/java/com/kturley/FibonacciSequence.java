@@ -4,14 +4,31 @@ import java.util.ArrayList;
 
 public class FibonacciSequence {
 
-    public ArrayList<Integer> upTo(Integer upToHere) {
-        ArrayList<Integer> fibonacciSequence = new ArrayList();
-        fibonacciSequence.add(new Integer(0));
-        fibonacciSequence.add(new Integer(1));
-        while (fibonacciSequence.get(fibonacciSequence.size()-1) < upToHere) {
-            fibonacciSequence.add(fibonacciSequence.get(fibonacciSequence.size()-1) + fibonacciSequence.get(fibonacciSequence.size()-2));
+    Integer upToHere;
+    private ArrayList<Integer> value;
+
+    public FibonacciSequence upTo(Integer upToHere) {
+        this.upToHere = upToHere;
+        return this;
+    }
+
+    public ArrayList<Integer> value(){
+
+        value = new ArrayList();
+
+        if(upToHere != null){
+            value.add(new Integer(0));
+            value.add(new Integer(1));
+            while (value.get(value.size()-1) < upToHere) {
+                value.add(value.get(value.size()-1) + value.get(value.size()-2));
+            }
+            value.remove(value.size()-1);
         }
-        fibonacciSequence.remove(fibonacciSequence.size()-1);
-        return fibonacciSequence;
+
+        return value;
+    }
+
+    public Integer largest(){
+        return value().get(value.size()-1);
     }
 }

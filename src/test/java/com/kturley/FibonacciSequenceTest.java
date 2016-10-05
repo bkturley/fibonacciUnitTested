@@ -1,6 +1,7 @@
 package com.kturley;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,20 +17,43 @@ public class FibonacciSequenceTest {
     }
 
     @Test
-    public void testGetFibonacciSequenceUpTo_999999() {
+    public void testUpToReturnsSelfWithStateSet() {
         Integer upToHere = 999999;
-        assertEquals(knownGoodAlgorithm(upToHere), testSubject.upTo(upToHere));
+        assertEquals(testSubject, testSubject.upTo(upToHere));
+        assertEquals(upToHere, testSubject.upToHere);
     }
 
-    private ArrayList<Integer> knownGoodAlgorithm(Integer upToHere) {
-        ArrayList<Integer> fibonnociSequence = new ArrayList();
-        fibonnociSequence.add(new Integer(0));
-        fibonnociSequence.add(new Integer(1));
-        while (fibonnociSequence.get(fibonnociSequence.size() - 1) < upToHere) {
-            fibonnociSequence.add(fibonnociSequence.get(fibonnociSequence.size() - 1) + fibonnociSequence.get(fibonnociSequence.size() - 2));
+    @Test
+    public void testValueReturnsFibsUpToValue(){
+        Integer upToHere = 999999;
+        assertEquals(knownGoodFibSequenceAlgorithm(upToHere), testSubject.upTo(upToHere).value());
+    }
+
+    @Test
+    public void testLargestReturnsLargestFibInValue(){
+        Integer upToHere = 999999;
+        assertEquals(knownGoodLargestAlgorithm(knownGoodFibSequenceAlgorithm(upToHere)), testSubject.upTo(upToHere).largest());
+    }
+
+    private ArrayList<Integer> knownGoodFibSequenceAlgorithm(Integer upToHere) {
+        ArrayList<Integer> fibonocciSequence = new ArrayList();
+        fibonocciSequence.add(new Integer(0));
+        fibonocciSequence.add(new Integer(1));
+        while (fibonocciSequence.get(fibonocciSequence.size() - 1) < upToHere) {
+            fibonocciSequence.add(fibonocciSequence.get(fibonocciSequence.size() - 1) + fibonocciSequence.get(fibonocciSequence.size() - 2));
         }
-        fibonnociSequence.remove(fibonnociSequence.size() - 1);
-        return fibonnociSequence;
+        fibonocciSequence.remove(fibonocciSequence.size() - 1);
+        return fibonocciSequence;
+    }
+
+    private Integer knownGoodLargestAlgorithm(List<Integer> integerList){
+        Integer largest = new Integer(0);
+        for(Integer integer : integerList){
+            if(integer.compareTo(largest) == 1){
+                largest = integer;
+            }
+        }
+        return largest;
     }
 
 }
