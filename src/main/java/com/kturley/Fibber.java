@@ -19,8 +19,6 @@ class Fibber {
     void run(String[] args) {
         if(validInput(args)){
             printStream.println(successConsoleOutput());
-            Integer largestFibFound = fibonacciSequence.upTo(upperLimit).largest();
-            printStream.println("Largest Fibonacci number found: " + largestFibFound);
         }else{
             printStream.println(invalidConsoleOutput(args));
         }

@@ -93,25 +93,6 @@ public class FibberTest {
     }
 
     @Test
-    public void testRun_reportsLargestFibFound() {
-
-        when(mockStopWatch.stop()).thenReturn((long) 456000000);
-        ArrayList<Integer> testArrayList = new ArrayList<>();
-        when(mockFibonacciSequence.upTo(9000)).thenReturn(mockFibonacciSequence);
-        when(mockFibonacciSequence.largest()).thenReturn(1111);
-        when(mockSumOfAllMultiples.of(2)).thenReturn(mockSumOfAllMultiples);
-        when(mockSumOfAllMultiples.in(testArrayList)).thenReturn(mockSumOfAllMultiples);
-        when(mockSumOfAllMultiples.value()).thenReturn(123);
-
-        testinput[0] = "9000";
-        testSubject.run(testinput);
-
-        verify(mockStopWatch).start();
-        verify(mockPrintStream).println("Sum of all even Fibonacci up to 9000: 123" + System.getProperty("line.separator") + "Calculation Time: 456000000 NanoSeconds.");
-        verify(mockPrintStream).println("Largest Fibonacci number found: 1111");
-    }
-
-    @Test
     public void testFibberPrintStreamIsSystemOut(){
         assertEquals(System.out, new Fibber().printStream);
     }
