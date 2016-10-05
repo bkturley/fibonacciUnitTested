@@ -37,6 +37,14 @@ public class FibberTest {
         testSubject.sumOfAllMultiples = mockSumOfAllMultiples;
         testSubject.stopWatch = mockStopWatch;
         testinput = new String[1];
+
+        when(mockStopWatch.stop()).thenReturn((long) 456000000);
+        ArrayList<Integer> testArrayList = new ArrayList<>();
+        when(mockFibonacciSequence.upTo(9000)).thenReturn(mockFibonacciSequence);
+        when(mockFibonacciSequence.value()).thenReturn(testArrayList);
+        when(mockSumOfAllMultiples.of(2)).thenReturn(mockSumOfAllMultiples);
+        when(mockSumOfAllMultiples.in(testArrayList)).thenReturn(mockSumOfAllMultiples);
+        when(mockSumOfAllMultiples.value()).thenReturn(123);
     }
 
     @After
@@ -76,15 +84,6 @@ public class FibberTest {
 
     @Test
     public void testRun_reportsSumOfEvenFibsWhenGivenValidInput() {
-
-        when(mockStopWatch.stop()).thenReturn((long) 456000000);
-        ArrayList<Integer> testArrayList = new ArrayList<>();
-        when(mockFibonacciSequence.upTo(9000)).thenReturn(mockFibonacciSequence);
-        when(mockFibonacciSequence.value()).thenReturn(testArrayList);
-        when(mockSumOfAllMultiples.of(2)).thenReturn(mockSumOfAllMultiples);
-        when(mockSumOfAllMultiples.in(testArrayList)).thenReturn(mockSumOfAllMultiples);
-        when(mockSumOfAllMultiples.value()).thenReturn(123);
-
         testinput[0] = "9000";
         testSubject.run(testinput);
 
