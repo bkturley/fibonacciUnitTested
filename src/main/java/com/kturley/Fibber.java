@@ -28,9 +28,9 @@ class Fibber {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Sum of all even Fibonacci up to " + upperLimit + ": ");
         stopWatch.start();
-        int solution = sumOfAllMultiples.of(2).in(fibonacciSequence.upTo(upperLimit)).value();
+        int sumOfEvenFibs = sumOfAllMultiples.of(2).in(fibonacciSequence.upTo(upperLimit)).value();
         long calculationTime = stopWatch.stop();
-        stringBuilder.append(solution);
+        stringBuilder.append(sumOfEvenFibs);
         stringBuilder.append(System.getProperty("line.separator"));
         stringBuilder.append("Calculation Time: " + calculationTime + " NanoSeconds.");
         return stringBuilder.toString();
