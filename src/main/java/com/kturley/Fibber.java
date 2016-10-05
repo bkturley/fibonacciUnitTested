@@ -17,7 +17,11 @@ class Fibber {
     private Integer upperLimit;
 
     void run(String[] args) {
-        printStream.println(validInput(args) ? successConsoleOutput() : invalidConsoleOutput(args));
+        if(validInput(args)){
+            printStream.println(successConsoleOutput());
+        }else{
+            printStream.println(invalidConsoleOutput(args));
+        }
     }
 
     private boolean validInput(String[] args) {
