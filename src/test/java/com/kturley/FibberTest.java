@@ -49,7 +49,6 @@ public class FibberTest {
         testinput = new String[0];
         testSubject.run(testinput);
         verify(mockPrintStream).println("Missing upper limit parameter.");
-        verifyNoMoreInteractions(mockPrintStream);
     }
     
     @Test
@@ -57,7 +56,6 @@ public class FibberTest {
         testinput[0] = "gibberish";
         testSubject.run(testinput);
         verify(mockPrintStream).println("Invalid upper limit parameter: " + testinput[0]);
-        verifyNoMoreInteractions(mockPrintStream);
     }
 
     @Test
@@ -65,7 +63,6 @@ public class FibberTest {
         testinput[0] = "-1234";
         testSubject.run(testinput);
         verify(mockPrintStream).println("Invalid upper limit parameter: " + testinput[0]);
-        verifyNoMoreInteractions(mockPrintStream);
     }
 
     @Test
@@ -75,7 +72,6 @@ public class FibberTest {
         testinput[1] = "200";
         testSubject.run(testinput);
         verify(mockPrintStream).println("Invalid parameter list.");
-        verifyNoMoreInteractions(mockPrintStream);
     }
 
     @Test
@@ -93,8 +89,6 @@ public class FibberTest {
 
         verify(mockStopWatch).start();
         verify(mockPrintStream).println("Sum of all even Fibonacci up to 9000: 123\nCalculation Time: 456000000 NanoSeconds.");
-        verifyNoMoreInteractions(mockPrintStream);
-
     }
 
     @Test
